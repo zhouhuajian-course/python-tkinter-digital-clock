@@ -14,6 +14,7 @@ from tkinter import *
 root = Tk()
 # 隐藏窗口
 root.withdraw()
+
 # 窗口标题
 root.title("数字时钟")
 # 窗口置顶
@@ -24,6 +25,7 @@ if os.path.exists(ico_path):
     root.iconbitmap(ico_path)
 # 固定窗口大小
 root.resizable(width=False, height=False)
+
 # 设置窗口大小并屏幕居中
 w = 500
 h = 250
@@ -35,18 +37,22 @@ y = int(screen_h / 2 - (h + 30) / 2)
 root.geometry(f"{w}x{h}+{x}+{y}")
 # 显示窗口
 root.deiconify()
+
 # 主窗口的背景图片
 bg_path = "image/app_bg.png"
 if os.path.exists(bg_path):
     bg_image = PhotoImage(file=bg_path)
     Label(root, image=bg_image).place(x=0, y=0)
+    
 # 背景图片的背景颜色
 bg_color = "#f7f1e5"
 # 当前时间文本标签
 Label(root, text="当前时间", font="宋体 20", bg=bg_color, pady=22).pack(side=TOP)
+
 # 数字时间文本标签
 time_label = Label(root, text="", font="宋体 45", bg="white", padx=12, pady=12)
 time_label.pack(side=TOP)
+
 # 24h/12h单选框
 frame = Frame(root, pady=30, bg=bg_color)
 frame.pack(side=BOTTOM)
